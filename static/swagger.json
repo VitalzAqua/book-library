@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "library",
+      "version": "1.0.0",
+      "title": "Victor's Library",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "tags": [
+        {
+          "name": "Products API",
+          "description": "Test API"
+        }
+      ],
+      "servers": [
+        {
+        "url": "/"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "_member_id": {
+                "type": "int",
+                "properties": {
+                    "_member_id": {
+                    "type": "int"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+            "/borrow/{_member_id}":{
+
+                "get" :{
+                    "tags": [
+                        "Borrow"
+                    ],
+                    "summary": "Get booklist",
+                    "parameters": [{
+                    "_member_id": "member_id",
+                    "in": "path",
+                    "description": "show member booklist",
+                    "required": true,
+                    "type": "integer",
+                    "schema" : {
+                        "$ref": "#/components/schemas/borrow_details"
+                    }
+                    }],
+                
+                    "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                        "$ref": "#/components/schemas/borrow_details"
+                        }
+                    },
+                    "401": {
+                        "description": "Record exists",
+                        "schema": {
+                        "$ref": "#/components/schemas/borrow_details"
+                        }
+                    },
+                    "402": {
+                        "description": "Invalid input",
+                        "schema": {
+                        "$ref": "#/components/schemas/borrow_details"
+                        }
+                    },
+                    "403": {
+                        "description": "Maximun reached",
+                        "schema": {
+                        "$ref": "#/components/schemas/borrow_details"
+                        },
+                    "404": {
+                        "description": "Record not found",
+                        "schema": {
+                        "$ref": "#/components/schemas/borrow_details"
+                        }
+                }
+            }
+        }
+    }
+} 
+} 
+} 
